@@ -1,0 +1,26 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Категория</th>
+                <th>Номер</th>
+                <th>Цена</th>
+                <th><a href="/admin/rooms_edit?ID=New">Добавить</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?foreach($arr['data']['rooms'] as $value):?>
+                <tr class="rooms_tr">
+                    <td><?=$value['ID']?></td>
+                    <td><?=$value['CAT_NAME']?></td>
+                    <td><?=$value['NUMBER']?></td>
+                    <td><?=$value['PRICE']?></td>
+                    <td id="end"> <a href="/admin/rooms_edit?ID=<?=$value['ID']?>">редактировать</a><td>
+                </tr>
+            <?endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</main>

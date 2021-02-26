@@ -1,0 +1,32 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Одобрение</th>
+                <th>Коментарий</th>
+                <th>Номер комнаты</th>
+                <th>Имя клиента</th>
+                <th>Дата</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?foreach($arr['data']['orders'] as $value):?>
+            <tr class="rooms_tr">
+                <td><?=$value['ID']?></td>
+                <td><?=$value['Availability']?></td>
+                <td><?=$value['COMMENT']?></td>
+                <td><?=$value['NUMBER']?></td>
+                <td><?=$value['NAME']?></td>
+                <td><?=$value['DATA_FROM']?> / <?=$value['DATA_TO']?> </td>
+                <td class="end"> <a href="/admin/orders_edit?ID=<?=$value['ID']?>">редактировать</a><td>
+                <td class="end"> <a href="#">Подтвердить</a><td>
+            </tr>
+            <?endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</main>

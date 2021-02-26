@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?if($cache == 'true'):?>
+        <meta http-equiv="Cache-Control" content="no-cache">
+    <?endif;?>
+
+    <title><?=(!isset($title))?"Заголовок":$title?></title>
+
+    <link href="../template/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <link href="/template/css/main.css" rel="stylesheet">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
+
+
+
+
+    <script src="../template/js/jquery-min.js"></script>
+    <script src="/template/js/owl-carousel/owl.carousel.js"></script>
+    <link rel="stylesheet" href="/template/js/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="/template/js/owl-carousel/assets/owl.theme.green.css">
+    <!-- Bootstrap core CSS -->
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        header{
+            height: 56px;
+        }
+
+    </style>
+
+
+    <!-- Custom styles for this template -->
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">N</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="/o_nas">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rooms">Номера и услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Прайс лист</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacs">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+

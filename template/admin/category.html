@@ -1,0 +1,23 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="table-responsive">
+        <a href="/admin/cat_edit?ID=New">Добавить</a>
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Наименование</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?foreach($arr['data'] as $value):?>
+            <tr>
+                <td><?=$value['ID']?></td>
+                <td><?=$value['NAME']?></td>
+                <td class="my_end"><a href="/admin/cat_edit?ID=<?=$value['ID']?>">Редактировать</a></td>
+            </tr>
+            <?endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</main>

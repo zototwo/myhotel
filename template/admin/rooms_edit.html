@@ -1,0 +1,67 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+     <div class="col-md-9 mx-auto col-lg-10 px-md-4">
+        <form class="edit_form" >
+            <div class="form-group">
+                <p>Картинка для превью</p>
+                <img class="prev_img_rooms" src="<?=$noimg?>"/>
+            </div>
+            <div class="form-group">
+                <label for="cat_name" class="col-form-label">Категория</label>
+                <input name="cat_name" type="text" class="form-control" id="cat_name" value="<?=isset($arr['data']['rooms']['CAT_NAME'])?$arr['data']['rooms']['CAT_NAME']:''?>">
+            </div>
+
+            <div class="form-group">
+                <label for="NUMBER_ROOM" class="col-form-label">Номер комнаты:</label>
+                <input name="number_room" type="text" class="form-control" id="NUMBER_ROOM" value="<?=isset($arr['data']['rooms']['NUMBER'])?$arr['data']['rooms']['NUMBER']:''?>">
+            </div>
+            <div class="form-group">
+                <label for="PRICE_ROOM" class="col-form-label">Цена</label>
+                <input name="price_room" id="PRICE_ROOM" type="tel" class="form-control" value="<?=isset($arr['data']['rooms']['PRICE'])?$arr['data']['rooms']['PRICE']:''?>">
+            </div>
+            <div class="form-group">
+                <label for="TEXT_FULL" class="col-form-label">Полный текст описание</label>
+                <textarea name="text_full" class="form-control" id="TEXT_FULL" ><?=isset($arr['data']['rooms']['TEXT_FULL'])?$arr['data']['rooms']['TEXT_FULL']:''?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="TEXT_PREV" class="col-form-label">Текс превью</label>
+                <textarea name="text_prev" class="form-control" id="TEXT_PREV" ><?=isset($arr['data']['rooms']['TEXT_PREV'])?$arr['data']['rooms']['TEXT_PREV']:''?></textarea>
+            </div>
+            <hr class="mt-2 mb-5">
+            <?if(isset($arr['data']['rooms']['addons'])):?>
+                <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Дополнительные опции</h3>
+                <?foreach($arr['data']['rooms']['addons'] as $value):?>
+                <div class="form-group">
+                    <label for="add_<?=$value['addId'];?>" class="col-form-label"><?=$value['ADDONS_NAME']?></label>
+                    <input name="add_<?=$value['addId'];?>" id="add_<?=$value['addId'];?>" type="tel" class="form-control" value="<?=$value['ADDONS_DATA']?>">
+                </div>
+                <?endforeach;?>
+            <?endif;?>
+            <!----------------------------------------------------------------------------------------------------------!>
+            <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h3>
+            <hr class="mt-2 mb-5">
+            <div class="row text-center text-lg-left">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
+                    </a>
+                </div>
+            </div>
+            <!----------------------------------------------------------------------------------------------------------!>
+            <div class="modal-footer myModal_send_btn">
+                <button type="button" class="btn btn-secondary" data-target="#orderModal">Close</button>
+                <button type="button" class="btn btn-primary" data-target="#orderModal">Send</button>
+            </div>
+        </form>
+    </div>
+</main>

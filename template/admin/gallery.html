@@ -1,0 +1,17 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h3>
+    <hr class="">
+    <div class="">
+     <button type="button" class="btn btn-primary">Добавить</button>
+    </div>
+    <div class="row text-center text-lg-left mt-3">
+        <?foreach($arr['data']['img'] as $value):?>
+            <div class="col-lg-3 col-md-4 col-6">
+                <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="<?=$value['SRC']?>" alt="">
+                </a>
+            </div>
+        <?endforeach;?>
+
+    </div>
+</main>

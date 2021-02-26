@@ -1,0 +1,16 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="col-md-9 mx-auto col-lg-10 px-md-4">
+        <form class="edit_form" action="/toCat" method="get">
+            <input name="add"  class="form-control" value="<?=($get['ID']=='New')?'New':'Update'?>" style="display: none">
+            <input name="id"  class="form-control" value="<?=($get['ID']=='New')?'New':$get['ID']?>" style="display: none">
+            <div class="form-group" >
+                <label for="phone" class="col-form-label">Наименование</label>
+                <input name="NAME" id="phone" class="form-control" value="<?=isset($arr['data']['NAME'])?$arr['data']['NAME']:''?>">
+            </div>
+            <div class="modal-footer myModal_send_btn">
+                <button type="button" class="btn btn-secondary" data-target="">Close</button>
+                <button type="button" class="btn btn-primary " id ="my_send" data-target="">Send</button>
+            </div>
+        </form>
+    </div>
+</main>

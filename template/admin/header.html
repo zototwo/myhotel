@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?if($cache==true):?>
+
+    <?else:?>
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <?endif?>
+    <title><?=(!isset($title))?"main":$title?></title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/template/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/template/admin/css/stylesheet_admin.css" rel="stylesheet">
+    <script src="/template/js/jquery-min.js"></script>
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .rooms_tr #end{
+            text-align: end;
+            padding: 0px;
+            width: 1%;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+
+</head>
+<body>
+
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+<!--       $this_path==''?'active:''?>                 active-->
+                        <a class="nav-link <?=$this_path=='main'?'active':''?>" aria-current="page" href="/admin">
+                            <span data-feather="home"></span>
+                            Main
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='orders'?'active':''?>" href="/admin/orders">
+                            <span data-feather="file"></span>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='category'?'active':''?>" href="/admin/category">
+                            <span data-feather="align-justify"></span>
+                            category
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='rooms'?'active':''?>" href="/admin/rooms">
+                            <span data-feather="shopping-cart"></span>
+                            Rooms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='clients'?'active':''?>" href="/admin/clients">
+                            <span data-feather="users"></span>
+                            Clients
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='calendar'?'active':''?>" href="/admin/calendar" >
+                            <span data-feather="calendar" ></span>
+                            Calendar
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='gallery'?'active':''?>" href="/admin/gallery">
+                            <span data-feather="image"></span>
+                            gallery
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Saved reports</span>
+                    <a class="link-secondary" href="#" aria-label="Add a new report">
+                        <span data-feather="plus-circle"></span>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Current month
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Last quarter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Social engagement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Year-end sale
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
