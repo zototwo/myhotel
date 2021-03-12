@@ -1,6 +1,5 @@
 
 
-
 <main class="container">
 
 
@@ -11,8 +10,12 @@
          <div class=" mb-3">
             <div class="">Выбирете дату и мы найдем для вас подходящие варианты</div>
         </div>
-        <form action="/search" method="get">
+        <form action="<?=$action?>" method="get">
             <div class="mb-3">
+
+
+                    <input name="CAT" value="<?=$cat?>"  type="text" class="form-control my_display_none" >
+
                     <div class="form-group">
                         <label for="inputDate1">Введите дату:</label>
                         <input name="data1" id="inputDate1" type="date" class="form-control">
@@ -59,7 +62,7 @@
 
 
 
-    <div class="ms-sm-auto col-lg-10 px-md-4">
+    <div class="ms-sm-auto col-lg-10 ">
     <?if($arr['data']):?>
     <?foreach ($arr['data'] as $value):?>
 
@@ -75,10 +78,18 @@
                 <div class="col"><?=$value['TEXT_PREV']?></div>
             </div>
             <div class="row">
-                <div class="col">Бесплатный wi-fi, кондиционер, микроволновка, чайник бла бла</div>
+                <div class="col"><p></p></div>
             </div>
             <div class="row">
-                <div class="col-7"></div>
+                <div class="col-7">
+                    <?if($value['ADDONS']):?>
+                        <?foreach($value['ADDONS'] as $val):?>
+                            <?if($val['ADDONS_DATA']!=''):?>
+                                <?=$val['ADDONS_NAME']?>:<?=$val['ADDONS_DATA']?>;
+                            <?endif?>
+                        <?endforeach?>
+                    <?endif?>
+                </div>
                 <div class="col-3" style="text-align: end"><button class="btn btn-primary mymodal" data-room="<?=$value['NUMBER']?>"  data-target="#orderModal">Забранировать</button> </div>
             </div>
         </div>
@@ -105,6 +116,16 @@
                     <div class="form-group my_display_none" >
                         <input name="room_number" type="text" class="form-control" id="room">
                     </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Введите дату:</label>
+                        <input name="data1"  type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Введите дату:</label>
+                        <input name="data2"  type="date" class="form-control">
+                    </div>
+
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Как к Вам обращаться:</label>
                         <input name="name_person" type="text" class="form-control" id="recipient-name">

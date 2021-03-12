@@ -12,16 +12,16 @@
             let url = "/helpers" +  $(form).attr('action') + ".php";
             let str = $(form).serialize();
             let rewrite = $(form).attr('rewrite');
+
             $.ajax({
                 url : url,
                 type : "GET",
                 data : str,
                 success: function(dataOut){
-                    if(dataOut != ""){
-                        console.log(dataOut);
+                    console.log(dataOut);
                         alert("Все прошло успешно");
                         window.location.href = rewrite;
-                    }
+
                 }
             }).done(function (){
 

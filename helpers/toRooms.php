@@ -6,6 +6,7 @@ require '../modules/BD.php';
 
 $bd = new BD();
 $add =[];
+
 if($_GET['id_rooms'] != 'New'){
     //Update id_rooms, cat_name, number_room, price_room, text_full, text_prev
     //Update aaons
@@ -13,8 +14,7 @@ if($_GET['id_rooms'] != 'New'){
     //Update main informnation
     $sql = "UPDATE rooms SET ID_CATEGORY = '".$_GET['cat_name']."', NUMBER = '".$_GET['number_room'].
         "',PRICE = '".$_GET['price_room']."',TEXT_FULL = '".$_GET['text_full']."',TEXT_PREV = '".$_GET['text_prev']."' WHERE ID = '".$_GET['id_rooms']."'";
-    //$bd->my_sql($sql);
-
+    $bd->my_sql_one($sql);
     //Update addons option
     foreach ($_GET as $key=>$value){ //Составляем карту дополнительных опций, если есть ид то обновляем если нет то добавляем
         if(explode('_',$key)[0] == 'add'){
