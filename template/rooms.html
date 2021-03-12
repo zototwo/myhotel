@@ -29,12 +29,43 @@
         </form>
     </div>
 
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light  collapse">
+            <div class="position-sticky pt-3 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/rooms?CAT=0">
+                           Все
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="/rooms?CAT=1">
+                           Одноместные
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rooms?CAT=11">
+                            Двуместные
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rooms?CAT=12">
+                            Люкс
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
+
+
+    <div class="ms-sm-auto col-lg-10 px-md-4">
     <?if($arr['data']):?>
     <?foreach ($arr['data'] as $value):?>
-    <div class="row mb-3 search-result" >
+
+        <div class="row  search-result" >
         <div class="col-2 image-content"><img class="image"/></div>
-        <div class="col-6 l">
+        <div class="col-8">
             <div class="row">
                 <div class="col-3">Номер № <?=$value['NUMBER']?></div>
                 <div class="col-3"><?=$value['CAT_NAME']?></div>
@@ -54,8 +85,8 @@
     </div>
     <?endforeach?>
     <?endif?>
-
-
+    </div>
+    </div>
 </main><!-- /.container -->
 
 

@@ -1,7 +1,11 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
      <div class="col-md-9 mx-auto col-lg-10 px-md-4">
-        <form class="edit_form" >
+        <form class="edit_form" action="/toRooms" method="get" rewrite="<?=$rewrite?>">
+            <div class="form-group">
+
+                <input name="id_rooms" type="text" class="form-control" style="display: none" value="<?=isset($arr['data']['rooms']['ID'])?$arr['data']['rooms']['ID']:'New'?>">
+            </div>
             <div class="form-group">
                 <p>Картинка для превью</p>
                 <img class="prev_img_rooms" src="<?=$noimg?>"/>
@@ -31,11 +35,12 @@
             <?if(isset($arr['data']['rooms']['addons'])):?>
                 <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Дополнительные опции</h3>
                 <?foreach($arr['data']['rooms']['addons'] as $value):?>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="add_<?=$value['addId'];?>" class="col-form-label"><?=$value['ADDONS_NAME']?></label>
-                    <input name="add_<?=$value['addId'];?>" id="add_<?=$value['addId'];?>" type="tel" class="form-control" value="<?=$value['ADDONS_DATA']?>">
+                    <input name="add_<?=$value['addId'];?>/<?=$value['addons_id'];?>" id="add_<?=$value['addId'];?>" type="tel" class="form-control" value="<?=$value['ADDONS_DATA']?>">
                 </div>
                 <?endforeach;?>
+                <button type="button" class="btn btn-primary mymodal" id="" data-target="#add_addons_modal">Добавить</button>
             <?endif;?>
             <!----------------------------------------------------------------------------------------------------------!>
             <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h3>
@@ -59,9 +64,36 @@
             </div>
             <!----------------------------------------------------------------------------------------------------------!>
             <div class="modal-footer myModal_send_btn">
-                <button type="button" class="btn btn-secondary" data-target="#orderModal">Close</button>
-                <button type="button" class="btn btn-primary" data-target="#orderModal">Send</button>
+                <button type="button" class="btn btn-secondary" >Close</button>
+                <button type="button" class="btn btn-primary" id ="my_send" >Send</button>
             </div>
         </form>
     </div>
 </main>
+
+<div class="modal fade" id="add_addons_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Введите название</h5>
+                <button type="button" class="close mymodal_close" data-dismiss="modal" aria-label="Close" data-target="#orderModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" id="#add_addons_modal">
+                    <div class="form-group " >
+                        <input name="addons_name" type="text" class="form-control" >
+                    </div>
+                    <div class="form-group " >
+                        <input name="id_cat" type="text" class="form-control" value="<?=isset($arr['data']['rooms']['CAT_NAME'])?$arr['data']['rooms']['CAT_NAME']:''?>" style="display: none" >
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer myModal_send_btn">
+                <button type="button" class="btn btn-secondary mymodal_close" data-target="#add_addons_modal" >Close</button>
+                <button type="button" class="btn btn-primary mymodal_send" data-target="#add_addons_modal">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>

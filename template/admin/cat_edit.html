@@ -1,6 +1,6 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="col-md-9 mx-auto col-lg-10 px-md-4">
-        <form class="edit_form" action="/toCat" method="get">
+        <form class="edit_form" action="/toCat" method="get" rewrite = "<?=$rewrite?>">
             <input name="add"  class="form-control" value="<?=($get['ID']=='New')?'New':'Update'?>" style="display: none">
             <input name="id"  class="form-control" value="<?=($get['ID']=='New')?'New':$get['ID']?>" style="display: none">
             <div class="form-group" >

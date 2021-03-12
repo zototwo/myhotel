@@ -51,12 +51,12 @@ namespace {
             //INSERT INTO `orders` VALUES (NULL, '1', '0', '9', '2021-02-21', '2021-03-31')
             $sql = "INSERT INTO $table VALUES ($data)";
             $this->con->query($sql);
-            return $this->con->insert_id?$this->con->insert_id:1;
+            return $this->con->insert_id?$this->con->insert_id:0;
         }
 
         public function my_sql_one($sql){
             if($this->con->query($sql)) {
-                $result = $this->con->query($sql);
+                $result = "succes";
             }
             else $result = "faild";
             return $result;

@@ -15,3 +15,4 @@ else{
     $arr['data'] = $bd->my_sql($sql)[0];
 }
 
+$rewrite = $simple->request_uri();

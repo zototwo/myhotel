@@ -11,18 +11,50 @@
             let form = $(this).parents('form:first');
             let url = "/helpers" +  $(form).attr('action') + ".php";
             let str = $(form).serialize();
+            let rewrite = $(form).attr('rewrite');
             $.ajax({
                 url : url,
                 type : "GET",
                 data : str,
                 success: function(dataOut){
                     if(dataOut != ""){
+                        console.log(dataOut);
                         alert("Все прошло успешно");
-                        window.location.href = '/admin/category';
+                        window.location.href = rewrite;
                     }
                 }
             }).done(function (){
 
+            });
+        });
+
+        $('.mymodal').click(function (){
+            $(($(this).attr('data-target'))).modal('toggle');
+
+        });
+        $('.mymodal_close').click(function(){
+            $(($(this).attr('data-target'))).modal('hide');
+            $('.mymodal_form').show();
+            $('.modal-body .myAnswer').hide();
+            $('.myModal_send_btn').show();
+            $('.myModal_answer_btn').hide();
+        });
+        $('.mymodal_send').click(function(){
+            let target = ($(this).attr('data-target'));
+            let str = $('form, ' + target).serialize();
+            $.ajax({
+                url : "/helpers/add_addons.php",
+                type : "GET",
+                data : str,
+                success: function(dataOut){
+                    console.log(dataOut);
+                    $('.mymodal_form').hide();
+                    $('.modal-body .myAnswer').show();
+                    $('.myModal_send_btn').hide();
+                    $('.myModal_answer_btn').show();
+                }
+            }).done(function (){
+                 window.location.href = window.location.href;
             });
         });
     })

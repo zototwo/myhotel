@@ -41,5 +41,8 @@ namespace {
             else $arr = NULL;
             return $arr;
         }
+        function request_uri(){
+            return $_SERVER['REQUEST_URI'];
+        }
     }
 }
