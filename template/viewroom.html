@@ -1,105 +1,61 @@
-
-
 <main class="container">
-    <div class="row mb-3">
-         <div class=" mb-3">
-            <div class="">Выбирете дату и мы найдем для вас подходящие варианты</div>
-        </div>
-        <form action="<?=$action?>" method="get">
-            <div class="mb-3">
-
-
-                    <input name="CAT" value="<?=$cat?>"  type="text" class="form-control my_display_none" >
-
-                    <div class="form-group">
-                        <label for="inputDate1">Введите дату:</label>
-                        <input name="data1" id="inputDate1" type="date" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputDate">Введите дату:</label>
-                        <input name="data2" id="inputDate" type="date" class="form-control">
-                    </div>
-            </div>
-            <div class="row">
-                <button type="submit" class="btn btn-primary">Найти результаты</button>
-            </div>
-        </form>
-    </div>
-
+<p></p>
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light  collapse">
-            <div class="position-sticky pt-3 sidebar">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/rooms?CAT=0">
-                           Все
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"  href="/rooms?CAT=1">
-                           Одноместные
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/rooms?CAT=11">
-                            Двуместные
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/rooms?CAT=12">
-                            Люкс
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-
-
-    <div class="ms-sm-auto col-lg-10 ">
-    <?if($arr['data']):?>
-    <?foreach ($arr['data'] as $value):?>
-
-        <div class="row  search-result" >
-        <div class="col-2 image-content">
-            <a href="/viewroom?ID=<?=$value['ID']?>" >
-                <img class="image"/>
-            </a>
+        <div class="col-sm-4 full_prev_picture">
+            <img class="image" src="/media/gallery/no_img.png" />
         </div>
-        <div class="col-8">
+        <div class="col-sm-7">
             <div class="row">
-                <div class="col-3">Номер № <?=$value['NUMBER']?></div>
-                <div class="col-3"><?=$value['CAT_NAME']?></div>
-                <div class="col-3" style="text-align: end"><?=$value['PRICE']?></div>
+                <div class="col-sm-3">
+                   Номер - <?=$arr['rooms']['NUMBER']?>
+                </div>
+                <div class="col-sm-3">
+                    <?=$arr['rooms']['cat']?>
+                </div>
+                <div class="col-sm-3">
+                    Цена - <?=$arr['rooms']['PRICE']?>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-3" style="text-align: end"><button class="btn btn-primary mymodal" data-room="<?=$value['NUMBER']?>"  data-target="#orderModal">Забранировать</button> </div>
+                </div>
             </div>
+            <p></p>
             <div class="row">
-                <div class="col"><?=$value['TEXT_PREV']?></div>
+                <div class="col-sm">
+                    <?=$arr['rooms']['TEXT_FULL']?>
+                </div>
             </div>
+            <br>
             <div class="row">
-                <div class="col"><p></p></div>
-            </div>
-            <div class="row">
-                <div class="col-7">
-                    <?if($value['ADDONS']):?>
-                        <?foreach($value['ADDONS'] as $val):?>
-                            <?if($val['ADDONS_DATA']!=''):?>
-                                <?=$val['ADDONS_NAME']?>:<?=$val['ADDONS_DATA']?>;
-                            <?endif?>
+                <div class="col-sm">
+                    <?if($arr['rooms']['ADDONS']):?>
+                    <?foreach($arr['rooms']['ADDONS'] as $val):?>
+                        <?if($val['ADDONS_DATA']!=''):?>
+                            <?=$val['ADDONS_NAME']?>:<?=$val['ADDONS_DATA']?>;
+                        <?endif?>
                         <?endforeach?>
                     <?endif?>
                 </div>
-                <div class="col-3" style="text-align: end"><button class="btn btn-primary mymodal" data-room="<?=$value['NUMBER']?>"  data-target="#orderModal">Забранировать</button> </div>
             </div>
         </div>
+        
     </div>
-    <?endforeach?>
-    <?endif?>
-    </div>
-    </div>
-</main><!-- /.container -->
 
-
+    <div class="row">
+        <div class="owl-carousel owl-theme" >
+            <div class="item">
+                <img src="/media/carousel/sl1.jpg">
+            </div>
+            <div class="item">
+                <img src="/media/carousel/sl2.jpg">
+            </div>
+            <div class="item">
+                <img src="/media/carousel/sl3.jpg">
+            </div>
+        </div>
+    </div> 
+    
+</main>
 
 <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

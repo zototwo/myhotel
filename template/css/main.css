@@ -67,3 +67,7 @@
     font-weight: 500;
     color: #333;
 }
+
+.full_prev_picture .image{
+    width: 256px;
+}

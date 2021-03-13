@@ -31,6 +31,10 @@ class route extends simple {
             'controller' => 'rooms',
             'action' => 'template/rooms.html'
         ),
+        'viewroom'=>array(
+            'controller' => 'viewroom',
+            'action' => 'template/viewroom.html'
+        ),
         'o_nas'=>array(
             'controller' => 'template',
             'action' => 'template/o_nas.html'
