@@ -56,6 +56,44 @@
             }).done(function (){
                  window.location.href = window.location.href;
             });
+            
+        });
+
+        $('input[type=file]').on('change', function(){
+            files = this.files;
+            console.log(files);
+        });
+
+        $('.mymodal_send_gal').click(function(){
+    
+
+            let target = ($(this).attr('data-target'));
+            let str = $('form, ' + target).serialize();
+            var form_data = new FormData();
+
+            $.each( files, function( key, value ){
+                form_data.append( key, value );
+            });
+
+            form_data.append( 'my_file_upload', 1 );
+            
+
+            
+            $.ajax({
+                url : "/helpers/toGallery.php",
+                dataType: 'text',  // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,                         
+                type: 'post',
+                success: function(dataOut){
+                    console.log(dataOut);
+                }
+            }).done(function (){
+                window.location.href = window.location.href;
+            });
+            
         });
     })
 </script>

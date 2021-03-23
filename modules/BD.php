@@ -61,5 +61,13 @@ namespace {
             else $result = "faild";
             return $result;
         }
+        public function mt_sql_one_ret($sql){
+            $temp = $this->con->query($sql);
+            
+            if($temp)
+                return $temp->fetch_assoc();
+            else
+                return 0;
+        }
     }
 }

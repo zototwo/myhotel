@@ -64,7 +64,11 @@
         <div class="row  search-result" >
         <div class="col-2 image-content">
             <a href="/viewroom?ID=<?=$value['ID']?>" >
-                <img class="image"/>
+                <?if($value["PIC_PREV"]):?>
+                    <img class="image" src="<?=$value["PIC_PREV"]?>">
+                <?else:?>
+                    <img class="image" src="<?=$noimg?>">
+                <?endif?>
             </a>
         </div>
         <div class="col-8">

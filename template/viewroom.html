@@ -1,8 +1,12 @@
 <main class="container">
 <p></p>
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-sm-4 full_prev_picture">
-            <img class="image" src="/media/gallery/no_img.png" />
+            <?if($arr['rooms']['PIC_PREV']['SRC']):?>
+            <img class="image" src="<?=$arr['rooms']['PIC_PREV']['SRC']?>" />
+            <?else:?>
+                <img class="image" src="/media/gallery/no_img.png" />
+            <?endif?>
         </div>
         <div class="col-sm-7">
             <div class="row">
@@ -43,15 +47,12 @@
 
     <div class="row">
         <div class="owl-carousel owl-theme" >
-            <div class="item">
-                <img src="/media/carousel/sl1.jpg">
-            </div>
-            <div class="item">
-                <img src="/media/carousel/sl2.jpg">
-            </div>
-            <div class="item">
-                <img src="/media/carousel/sl3.jpg">
-            </div>
+            <?foreach($arr['rooms']['gallery'] as $val):?>
+                <div class="item">
+                    <img src="<?=$val['SRC']?>" style="    max-height: 302px;">
+                </div>
+            <?endforeach?>
+           
         </div>
     </div> 
     

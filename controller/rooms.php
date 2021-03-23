@@ -10,11 +10,11 @@ $title = "Номера и услуги";
 $get = $simple->simple_get();
 if($get['CAT'] == 0){
     if(!isset($get['data1']) && !isset($get['data2'])){
-        $sql = 'SELECT rooms.*, category.NAME as CAT_NAME FROM rooms LEFT JOIN category ON rooms.ID_CATEGORY = category.ID ';
+        $sql = 'SELECT rooms.*, category.NAME as CAT_NAME, gallery.SRC as PIC_PREV FROM rooms LEFT JOIN category ON rooms.ID_CATEGORY = category.ID LEFT JOIN gallery ON rooms.PICTURE_PREV = gallery.ID ';
     }
     else{
         $sql = 'SELECT
-            rooms.*, orders.DATA_FROM, orders.DATA_TO, category.NAME as CAT_NAME
+            rooms.*, orders.DATA_FROM, orders.DATA_TO, category.NAME as CAT_NAME, gallery.SRC as PIC_PREV
         FROM
             rooms
         LEFT JOIN category ON rooms.ID_CATEGORY = category.ID
@@ -28,16 +28,17 @@ if($get['CAT'] == 0){
                      (orders.DATA_FROM  > \''.$get['data2'].'\' and orders.DATA_TO > \''.$get['data2'].'\')
                      )
                 )
+        LEFT JOIN gallery ON rooms.PICTURE_PREV = gallery.ID
         WHERE
             orders.ID_TO_ROOM IS NULL;';
     }
 }else{
     if(!isset($get['data1']) && !isset($get['data2'])){
-        $sql = 'SELECT rooms.*, category.NAME as CAT_NAME FROM rooms LEFT JOIN category ON rooms.ID_CATEGORY = category.ID WHERE rooms.ID_CATEGORY = '.$get['CAT'];
+        $sql = 'SELECT rooms.*, category.NAME as CAT_NAME, gallery.SRC as PIC_PREV FROM rooms LEFT JOIN category ON rooms.ID_CATEGORY = category.ID LEFT JOIN gallery ON rooms.PICTURE_PREV = gallery.ID WHERE rooms.ID_CATEGORY = '.$get['CAT'];
     }
     else{
         $sql = 'SELECT
-            rooms.*, orders.DATA_FROM, orders.DATA_TO, category.NAME as CAT_NAME
+            rooms.*, orders.DATA_FROM, orders.DATA_TO, category.NAME as CAT_NAME, gallery.SRC as PIC_PREV
         FROM
             rooms
         LEFT JOIN category ON rooms.ID_CATEGORY = category.ID
@@ -51,6 +52,7 @@ if($get['CAT'] == 0){
                      (orders.DATA_FROM  > \''.$get['data2'].'\' and orders.DATA_TO > \''.$get['data2'].'\')
                      )
                 )
+        LEFT JOIN gallery ON rooms.PICTURE_PREV = gallery.ID
         WHERE
             orders.ID_TO_ROOM IS NULL
             AND rooms.ID_CATEGORY = '.$get['CAT'];

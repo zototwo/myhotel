@@ -2,7 +2,7 @@
     <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h3>
     <hr class="">
     <div class="">
-     <button type="button" class="btn btn-primary">Добавить</button>
+     <button type="button" class="btn btn-primary mymodal" data-target="#galleryModal">Добавить</button>
     </div>
     <div class="row text-center text-lg-left mt-3">
         <?foreach($arr['data']['img'] as $value):?>
@@ -13,5 +13,39 @@
             </div>
         <?endforeach;?>
 
+    </div>
+
+
+
+      <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close mymodal_close" data-dismiss="modal" aria-label="Close" data-target="#galleryModal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="mymodal_form" id="#galleryModal" >
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Выберете файлы</label>
+                            <input class="form-control" type="file" name="file[]" id="formFileMultiple" multiple>
+                        </div>
+                    </form>
+                    <div class="myAnswer" style="display: none">
+                        ALL OK
+                    </div>
+                </div>
+                <div class="modal-footer myModal_send_btn">
+                    <button type="button" class="btn btn-secondary mymodal_close" data-target="#galleryModal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary mymodal_send_gal" data-target="#galleryModal">Send message</button>
+                </div>
+                <div class="modal-footer myModal_answer_btn" style="display: none">
+                    <button type="button" class="btn btn-secondary mymodal_close" data-target="#galleryModal" data-dismiss="modal">Close</button>
+    <!--                <button type="button" class="btn btn-primary mymodal_send" data-target="#orderModal">Send message</button>-->
+                </div>
+            </div>
+        </div>
     </div>
 </main>
