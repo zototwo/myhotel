@@ -1,0 +1,140 @@
+<br>
+<div class="container mb-3">
+    <div class="row mb-3">
+        <div class="col-7">
+            Оставьте свое мнение, оно очень важно для Нас
+        </div>
+        <div class="col flex-column-reverse">
+            <button class="btn btn-primary mymodal" data-target="#reviewModal">Отсавить отзыв</button>
+        </div>
+    </div>
+    <div class="row mb-lg-4 container-reviews" style="margin-top: 15px; ">
+        <div class="row">
+            <div class="author col-2">
+                <span class="user">Щербинин</span>, <span class="date">29.10.2020</span>
+            </div>
+            <div class="stars-rating col">
+
+                <div class="stars-container" title="Общий рейтинг: 5">
+                    <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                    <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                    <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                    <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                    <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix" style="height:15px;"></div>
+        <p>Комментарий:<br>Отличный телевизор за нормальную стоимость. Покупали в спальню , коротать вечера. Четко показывает, куча разных фишечек. Я доволен</p>
+    </div>
+    <?if(isset($arr['data'])):?>
+        <?foreach($arr['data'] as $val):?>
+        <div class="row mb-lg-4 container-reviews" style="margin-top: 15px; ">
+            <div class="row">
+                <div class="author col-2">
+                    <span class="user"><?=$val['NAME']?></span>, <span class="date"><?=$val['DATA']?></span>
+                </div>
+                <div class="stars-rating col">
+
+                    <div class="stars-container" title="Общий рейтинг: <?=$val['REITING']?>">
+                        <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                        <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                        <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                        <svg fill="#ff9933" height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix" style="height:15px;"></div>
+            <p>Комментарий:<br><?=$val['TEXT']?></p>
+        </div>
+        <?endforeach?>
+    <?endif?>
+</div>
+
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Оставьте отзыв</h5>
+                <button type="button" class="close mymodal_close" data-dismiss="modal" aria-label="Close" data-target="#reviewModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="mymodal_form" id="#reviewModal" target="/helpers/toReview.php">
+                    <input name="action" style="display: none" value="insert">
+                    <div class="form-group">
+                        <label  class="col-form-label">Как к Вам обращаться:</label>
+                        <input name="FIO" type="text" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-form-label">Текст комментария:</label>
+                        <br>
+                        <textarea name="textComment" id="textComment" style="width: 100%"></textarea>
+<!--                        <input name="FIO" type="text" class="form-control" >-->
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-form-label">Поставьте оценку от 1 до 5:</label>
+<!--                        <input id="raiting" type="text" class="form-control" >-->
+                        <select name="raiting" style="width: 25%">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="myAnswer" style="display: none">
+                    Спасибо за Ваш отзыв
+                </div>
+            </div>
+            <div class="modal-footer myModal_send_btn">
+                <button type="button" class="btn btn-secondary mymodal_close" data-target="#reviewModal" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary mymodal_send" data-target="#reviewModal">Отправить</button>
+            </div>
+            <div class="modal-footer myModal_answer_btn" style="display: none">
+                <button type="button" class="btn btn-secondary mymodal_close" data-target="#reviewModal" data-dismiss="modal">Закрыть</button>
+                <!--                <button type="button" class="btn btn-primary mymodal_send" data-target="#orderModal">Send message</button>-->
+            </div>
+        </div>
+    </div>
+</div>

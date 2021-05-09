@@ -34,9 +34,18 @@
 
     });
 
+
 </script>
 
 
 <link href='/template/fullcalendar/main.css' rel='stylesheet' />
 <script src='/template/fullcalendar/main.js'></script>
 <script src='/template/fullcalendar/locales-all.js'></script>
+
+<script>
+
+    $(function(){
+        $($('.fc-button-group')[1]).append('<a href="<?=$link?>"><button class="fc-listMonth-button fc-button fc-button-primary"  type="button">Свободные</button></a>')
+    });
+
+</script>

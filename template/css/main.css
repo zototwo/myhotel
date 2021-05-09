@@ -71,3 +71,14 @@
 .full_prev_picture .image{
     width: 256px;
 }
+
+.container-reviews{
+    width: 100%;
+    margin-bottom: 30px;
+    border: 1px solid #dddddd;
+    box-shadow: 0.682px 0.731px 3px 0px rgb(0 0 0 / 25%);
+    color: #404041;
+    font-family: "m med";
+    font-size: 14px;
+    padding: 25px 40px 25px 30px;
+}

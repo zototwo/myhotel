@@ -22,6 +22,8 @@ if($get['ID']!='New') {
                                             LEFT JOIN addons ON rooms.ID = addons.MASTER_ID
                                             WHERE rooms.ID = 9
      */
+    $arr['data']['rooms']['PICTURE_PREV'] = $bd->mt_sql_one_ret("SELECT * FROM gallery WHERE ID = ".$arr['data']['rooms']['PICTURE_PREV']);
+    $arr['data']['gallery'] = $bd->my_sql("SELECT ID,SRC FROM gallery");
     $rewrite = $simple->request_uri();
 }else{
     $rewrite = '/admin/rooms';

@@ -8,8 +8,6 @@ spl_autoload_register(function($class) {
     $fn =  $last . '.php';
     $fn = LIB_DIR . str_replace('\\', '/', $fn);
 
-    //echo '<b>autoload: ' . $class . '</b> file: ' . $fn . '<br>';
-
     if (file_exists($fn)) require $fn;
 });
 
@@ -21,6 +19,14 @@ spl_autoload_register(function($class) {
     $simple = new simple();
 
     $simple->showEROR(true);
+
+    if($route->is_admin()){
+
+        //var_dump($_COOKIE);
+
+        if($_COOKIE['admins'] != "1" && $simple->request_uri() != "/admin/in_admin")
+            header('Location: /admin/in_admin');
+    }
 
     $loader->render($route->get_route());
 

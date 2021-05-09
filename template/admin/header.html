@@ -60,7 +60,7 @@
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Sign out</a>
+            <a class="nav-link" href="/helpers/exit_admin.php">Выход</a>
         </li>
     </ul>
 </header>
@@ -74,43 +74,49 @@
 <!--       $this_path==''?'active:''?>                 active-->
                         <a class="nav-link <?=$this_path=='main'?'active':''?>" aria-current="page" href="/admin">
                             <span data-feather="home"></span>
-                            Main
+                            Главная
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?=$this_path=='orders'?'active':''?>" href="/admin/orders">
                             <span data-feather="file"></span>
-                            Orders
+                            Заказы
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?=$this_path=='category'?'active':''?>" href="/admin/category">
                             <span data-feather="align-justify"></span>
-                            category
+                            Категории
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?=$this_path=='rooms'?'active':''?>" href="/admin/rooms">
                             <span data-feather="shopping-cart"></span>
-                            Rooms
+                            Комнаты
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?=$this_path=='clients'?'active':''?>" href="/admin/clients">
                             <span data-feather="users"></span>
-                            Clients
+                            Клиенты
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?=$this_path=='calendar'?'active':''?>" href="/admin/calendar" >
                             <span data-feather="calendar" ></span>
-                            Calendar
+                            Календарь
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?=$this_path=='gallery'?'active':''?>" href="/admin/gallery">
                             <span data-feather="image"></span>
-                            gallery
+                            Галерея
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$this_path=='reviews'?'active':''?>" href="/admin/reviews">
+                            <span data-feather="star"></span>
+                            Отзывы
                         </a>
                     </li>
                 </ul>

@@ -23,9 +23,17 @@ class route extends simple {
             'controller' => 'admin',
             'action' => 'template/admin/index.html'
         ),
+        'admin/in_admin'=>array(
+            'controller' => 'admin/in_admin',
+            'action' => 'template/admin/in_admin.html'
+        ),
         'search'=>array(
             'controller' => 'search',
             'action' => 'template/search.html'
+        ),
+        'price-list' => array(
+            'controller' => 'priceList',
+            'action' => 'template/price-list.html'
         ),
         'rooms'=>array(
             'controller' => 'rooms',
@@ -42,6 +50,14 @@ class route extends simple {
         'contacs'=>array(
             'controller' => 'template',
             'action' => 'template/contacs.html'
+        ),
+        'inperson'=>array(
+            'controller' => 'inperson',
+            'action' => 'template/inperson.html'
+        ),
+        'reviews'=>array(
+            'controller' => 'reviews',
+            'action' => 'template/reviews.html'
         ),
         'admin/calendar'=>array(
             'controller' => 'admin/calendar',
@@ -83,6 +99,10 @@ class route extends simple {
             'controller' => 'admin/cat_edit',
             'action' => 'template/admin/cat_edit.html'
         ),
+        'admin/reviews'=>array(
+            'controller' => 'admin/reviews',
+            'action' => 'template/admin/reviews.html'
+        ),
     );
     function __construct()
     {
@@ -91,10 +111,18 @@ class route extends simple {
     function get_route(){
 
         $path = $this->route;
+
         if($this->main_route[$path]['controller']=='') { //если контроллера не существует то отадем 404
             parent::eror404();
+
         }
 
         return $this->main_route[$path];
+    }
+    function is_admin(){
+        if(explode('/',$this->get_route()['controller'])[0] == "admin"){
+            return true;
+        }
+        return false;
     }
 }

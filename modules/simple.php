@@ -1,6 +1,7 @@
 <?php
 namespace {
     class simple{
+        public $admin;
         function super_unique($array,$key)
         {
             $temp_array = [];
@@ -43,6 +44,10 @@ namespace {
         }
         function request_uri(){
             return $_SERVER['REQUEST_URI'];
+        }
+        function y_admin(){
+
+            $this->admin = true;
         }
     }
 }

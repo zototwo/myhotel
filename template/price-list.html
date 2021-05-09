@@ -1,0 +1,22 @@
+<main class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Категория</th>
+            <th scope="col">Минимальная цена</th>
+            <th scope="col">Максимальная цена</th>
+            <th scope="col">Возможные дополнения</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?foreach($arr['data']['priceList'] as $val):?>
+            <tr>
+                <td ><?=$val['NAME']?></td>
+                <td><?=$val['PRICE_MIN']?></td>
+                <td><?=$val['PRICE_MAX']?></td>
+                <td><?=$val['ADDONS']?></td>
+            </tr>
+        <?endforeach;?>
+        </tbody>
+    </table>
+</main>

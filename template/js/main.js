@@ -14,14 +14,19 @@ $(function(){
     //$dataFrom,$dataTo
     $('.mymodal_send').click(function(){
         let target = ($(this).attr('data-target'));
-        let str = $('form, ' + target).serialize();
+        let form = $(target+ ' form');
+        let my_url = form.attr('target');
+        let str = form.serialize();
         //ajax-запрос
         let my_data_search = window.location.search;
+
         my_data_search = my_data_search.replace('?','');
 
+
         str = str + "&" + my_data_search;
+        //console.log(str);
         $.ajax({
-            url : "/helpers/toOrder.php",
+            url : my_url,
             type : "GET",
             data : str,
             success: function(dataOut){

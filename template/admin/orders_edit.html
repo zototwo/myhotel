@@ -2,7 +2,6 @@
 
     <div class="col-md-9 mx-auto col-lg-10 px-md-4">
         <form class="edit_form" >
-
             <div class="form-group">
                 <label for="ava" class="col-form-label">Одобрена</label>
                 <input name="ava" type="checkbox" id="ava"/>
@@ -40,8 +39,8 @@
                 <input name="data_to" id="data_to" type="date" class="form-control" value="<?=isset($arr['data']['orders']['DATA_TO'])?$arr['data']['orders']['DATA_TO']:''?>">
             </div>
             <div class="modal-footer myModal_send_btn">
-                <button type="button" class="btn btn-secondary" data-target="#orderModal">Close</button>
-                <button type="button" class="btn btn-primary" data-target="#orderModal">Send</button>
+                <button type="button" class="btn btn-secondary" data-target="#orderModal">Закрыть</button>
+                <button type="button" class="btn btn-primary" data-target="#orderModal">Отправить</button>
             </div>
         </form>
     </div>

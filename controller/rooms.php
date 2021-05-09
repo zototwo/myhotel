@@ -73,6 +73,11 @@ foreach ($arr['data'] as $key=>$val){
                                             LEFT JOIN addons ON (rooms.ID = addons.MASTER_ID AND addons.ID_ADDONS = addons_option.ID)
                                             WHERE rooms.ID =  " . $id);
 }
+
+$data1 = $get['data1'];
+$data2 = $get['data2'];
+
+
 //print_r($arr['data']);
 //$arr['data'] = $simple->super_unique($arr['rooms'],'ID');
 //unset($arr['rooms']);

@@ -13,12 +13,12 @@
 
                     <div class="form-group">
                         <label for="inputDate1">Введите дату:</label>
-                        <input name="data1" id="inputDate1" type="date" class="form-control">
+                        <input name="data1" id="inputDate1" type="date" class="form-control" value="<?=isset($data1)?$data1:''?>">
                     </div>
 
                     <div class="form-group">
                         <label for="inputDate">Введите дату:</label>
-                        <input name="data2" id="inputDate" type="date" class="form-control">
+                        <input name="data2" id="inputDate" type="date" class="form-control" value="<?=isset($data2)?$data2:''?>">
                     </div>
             </div>
             <div class="row">
@@ -65,7 +65,7 @@
         <div class="col-2 image-content">
             <a href="/viewroom?ID=<?=$value['ID']?>" >
                 <?if($value["PIC_PREV"]):?>
-                    <img class="image" src="<?=$value["PIC_PREV"]?>">
+                    <img class="image" src="<?=$value['PIC_PREV']?>">
                 <?else:?>
                     <img class="image" src="<?=$noimg?>">
                 <?endif?>
@@ -115,18 +115,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="mymodal_form" id="#orderModal">
+                <form class="mymodal_form" id="#orderModal" target="/helpers/toOrder.php">
                     <div class="form-group my_display_none" >
                         <input name="room_number" type="text" class="form-control" id="room">
                     </div>
 
+
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Введите дату:</label>
-                        <input name="data1"  type="date" class="form-control">
+                        <?if(isset($data1)):?>
+                            <input name="data1"   type="date" class="form-control" value="<?=isset($data1)?$data1:''?>" disabled>
+                        <?else:?>
+                            <input name="data1"   type="date" class="form-control" value="<?=isset($data1)?$data1:''?>" >
+                        <?endif?>
                     </div>
+
+
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Введите дату:</label>
-                        <input name="data2"  type="date" class="form-control">
+                        <?if(isset($data2)):?>
+                            <input name="data2"   type="date" class="form-control" value="<?=isset($data2)?$data2:''?>" disabled>
+                        <?else:?>
+                        <input name="data2"   type="date" class="form-control" value="<?=isset($data2)?$data2:''?>" >
+                        <?endif?>
                     </div>
 
                     <div class="form-group">
