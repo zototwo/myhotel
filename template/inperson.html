@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-md-offset-3 col-md-6" style="margin-left: 25%">
+    <form class="form-horizontal form_in_admin" action="<?=($arr['data']['get']['inputName']!='')?'':'inperson'?>" method="post">
+        <span class="heading">АВТОРИЗАЦИЯ</span>
 
-</body>
-</html>
+        <?if($no_passw == true):?>
+            <span>Вы ввели не правельный пароль</span>
+        <?endif?>
+        <div class="form-group" <?=($arr['data']['get']['inputName']=='')?'':'style="display:none"'?> >
+            <input type="text" class="form-control" name="inputName" placeholder="Номер телефона" value="<?=$phone?>">
+        </div>
+
+        <?if($arr['data']['get']['inputName']!=""):?>
+            <p>Вам на почту отправлен пароль</p>
+            <div class="form-group help">
+                <input type="password" class="form-control" name="inputPassword" placeholder="Password">
+            </div>
+            <p>Повторная отправка через <span><s>seconds</s></span> </p>
+        <?endif?>
+<!--        <div class="form-group help">-->
+<!--            <input type="password" class="form-control" name="inputPassword" placeholder="Password">-->
+<!--&lt;!&ndash;            <i class="fa fa-lock"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#" class="fa fa-question-circle"></a>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+            <button  class="btn btn-default btn_in_admin">ВХОД</button>
+    </form>
+</div>

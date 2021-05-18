@@ -4,16 +4,16 @@
         <form class="edit_form" >
             <div class="form-group">
                 <label for="ava" class="col-form-label">Одобрена</label>
-                <input name="ava" type="checkbox" id="ava"/>
+                <input name="ava" type="checkbox" id="ava" value_id="<?=$get['ID']?>" <?=($arr['data']['orders']['Availability']=='1')?'checked':'1'?>  />
                 <!--                <input name="number_room" type="text" class="form-control" id="NUMBER_ROOM" value="<?=isset($arr['data']['rooms']['NUMBER'])?$arr['data']['rooms']['NUMBER']:''?>">-->
             </div>
             <div class="form-group">
-                <label for="name" class="col-form-label">Ммя клиента</label>
-                <input name="name" id="name" type="tel" class="form-control" value="<?=isset($arr['data']['orders']['NAME'])?$arr['data']['orders']['NAME']:''?>">
+                <label for="" class="col-form-label">Ммя клиента</label>
+                <input name="name" id="" type="tel" class="form-control" value="<?=isset($arr['data']['orders']['NAME'])?$arr['data']['orders']['NAME']:''?>" disabled>
             </div>
             <div class="form-group">
-                <label for="phone" class="col-form-label">Номер</label>
-                <input name="phone" id="phone" type="tel" class="form-control" value="<?=isset($arr['data']['orders']['PHONE'])?$arr['data']['orders']['PHONE']:''?>">
+                <label for="" class="col-form-label">Номер</label>
+                <input disabled name="phone" id="" type="tel" class="form-control" value="<?=isset($arr['data']['orders']['PHONE'])?$arr['data']['orders']['PHONE']:''?>">
             </div>
 
             <div class="form-group">
@@ -39,9 +39,75 @@
                 <input name="data_to" id="data_to" type="date" class="form-control" value="<?=isset($arr['data']['orders']['DATA_TO'])?$arr['data']['orders']['DATA_TO']:''?>">
             </div>
             <div class="modal-footer myModal_send_btn">
-                <button type="button" class="btn btn-secondary" data-target="#orderModal">Закрыть</button>
-                <button type="button" class="btn btn-primary" data-target="#orderModal">Отправить</button>
+                <button type="button" class="btn btn-secondary order_delete" value_id="<?=$get['ID']?>">Удалить</button>
+                <button type="button" class="btn btn-secondary">Закрыть</button>
+                <button type="button" class="btn btn-primary order_update" value_id="<?=$get['ID']?>">Отправить</button>
             </div>
         </form>
     </div>
 </main>
+<script>
+    $(function (){
+        $('input#ava').click(function (){
+            str = {
+                'id' : $(this).attr('value_id'),
+                'action' : 'updateAVA',
+            };
+            $.ajax({
+                url : '/helpers/toOrderUpdate.php',
+                type : "POST",
+                data : str,
+                success: function(dataOut){
+                    //console.log(dataOut);
+                    if(dataOut == 1) {
+                        alert("Все прошло успешно");
+                        window.location.reload();
+                    }
+                }
+            }).done(function (){
+
+            });
+        });
+        $('.order_delete').click(function (){
+            str = {
+                'id' : $(this).attr('value_id'),
+                'action' : 'delete_order',
+            };
+            $.ajax({
+                url : '/helpers/toOrderUpdate.php',
+                type : "POST",
+                data : str,
+                success: function(dataOut){
+                    //console.log(dataOut);
+                    if(dataOut == 1) {
+                        alert("Все прошло успешно");
+                        window.location.href = '/admin/orders'
+                    }
+                }
+            }).done(function (){
+
+            });
+        });
+        $('.order_update').click(function (){
+            str = {
+                'id' : $(this).attr('value_id'),
+                'action' : 'update_order',
+                'data' : $('form.edit_form').serialize(),
+            };
+            $.ajax({
+                url : '/helpers/toOrderUpdate.php',
+                type : "POST",
+                data : str,
+                success: function(dataOut){
+
+                    if(dataOut == 1) {
+                        alert("Все прошло успешно");
+                        window.location.reload();
+                    }
+                }
+            }).done(function (){
+
+            });
+        });
+    })
+</script>

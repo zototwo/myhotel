@@ -23,10 +23,36 @@
                 <td><?=$value['NAME']?></td>
                 <td><?=$value['DATA_FROM']?> / <?=$value['DATA_TO']?> </td>
                 <td class="end"> <a href="/admin/orders_edit?ID=<?=$value['ID']?>">редактировать</a><td>
-                <td class="end"> <a href="#">Подтвердить</a><td>
+                <td class="end"> <a class="orders_confirm" value_id="<?=$value['ID']?>" href="#">Подтвердить</a><td>
             </tr>
             <?endforeach;?>
             </tbody>
         </table>
     </div>
 </main>
+
+<script>
+    $(function (){
+        $('.orders_confirm').click(function (){
+            //alert($(this).attr('value_id'))
+            str = {
+                'id' : $(this).attr('value_id'),
+                'action' : 'updateAVA',
+            };
+            $.ajax({
+                url : '/helpers/toOrderUpdate.php',
+                type : "POST",
+                data : str,
+                success: function(dataOut){
+                    //console.log(dataOut);
+                    if(dataOut == 1) {
+                        alert("Все прошло успешно");
+                        window.location.reload();
+                    }
+                }
+            }).done(function (){
+
+            });
+        })
+    })
+</script>

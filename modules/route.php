@@ -103,6 +103,10 @@ class route extends simple {
             'controller' => 'admin/reviews',
             'action' => 'template/admin/reviews.html'
         ),
+        'person'=>array(
+            'controller' => 'person/index',
+            'action' => 'template/person/index.html'
+        ),
     );
     function __construct()
     {
